@@ -1,0 +1,11 @@
+[
+    {
+        "id": "PA001",
+        "equipo_local": "4",
+        "equipo_visitante": "5",
+        "goles_local": 5,
+        "goles_visitante": 4,
+        "fecha": "2025-05-05",
+        "torneo_id": "4"
+    }
+]

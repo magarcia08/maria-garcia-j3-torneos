@@ -1,0 +1,12 @@
+[
+    {
+        "id": "TF001",
+        "jugador_id": "JU001",
+        "nombre_jugador": "Andres",
+        "equipo_origen": "1",
+        "equipo_destino": "1",
+        "tipo": "prestamo",
+        "valor": 5000,
+        "fecha": "2025-05-05"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "id": "JU001",
+        "nombre": "Andres",
+        "posicion": "Delantero",
+        "dorsal": 10,
+        "equipo_id": "1",
+        "fecha_nacimiento": "2024-05-05"
+    }
+]
