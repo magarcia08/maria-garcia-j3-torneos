@@ -9,6 +9,7 @@ RUTA = os.path.join(DB_FILE, "partidos.json")
 def crear_partido():
     sc.limpiar_pantalla()
     partidos = cf.leer_json(RUTA)
+    # PA{n:03} para generar id como PA001, PA002, etc.
     nuevo_id = f"PA{len(partidos) + 1:03}"
     equipo_local = input("ID del equipo local: ").upper()
     equipo_visitante = input("ID del equipo visitante: ").upper()

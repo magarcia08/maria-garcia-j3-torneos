@@ -9,6 +9,7 @@ RUTA = os.path.join(DB_FILE, "ligas.json")
 def crear_liga():
     sc.limpiar_pantalla()
     ligas = cf.leer_json(RUTA)
+    # LIG{n:03} para generar id como LIG001, LIG002, etc.
     nuevo_id = f"LIG{len(ligas) + 1:03}"
     nombre = vd.validatetext("Nombre de la liga: ").title()
     pais = vd.validatetext("País de la liga: ").title()

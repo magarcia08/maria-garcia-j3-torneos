@@ -1,7 +1,16 @@
-# === app/main.py ===
+"""
+Autor: Maria Alejandra Garcia Merchan
+Fecha: 2025-07-27
+Descripción: Este es el punto de entrada principal para el gestor de torneos de fútbol.
+Este proyecto permite gestionar equipos, jugadores, dirigentes, partidos, ligas, torneos, 
+transferencias y estadísticas de fútbol.
+"""
+
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# se creo la linea anterior para que pueda importar los modulos de controllers y utils, y utilizar el run code
+# segunda forma de inicializar el proyecto es python "3" -m app.main
 
 from controllers.equipos import menu_equipos
 from controllers.jugadores import menu_jugadores
@@ -14,7 +23,7 @@ from controllers.estadisticas import menu_estadisticas
 import utils.screenControllers as sc
 
 
-
+# Punto de entrada principal del gestor de torneos de fútbol
 def menu_principal():
     while True:
         sc.limpiar_pantalla()

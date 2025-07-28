@@ -7,5 +7,14 @@
         "goles_visitante": 4,
         "fecha": "2025-05-05",
         "torneo_id": "4"
+    },
+    {
+        "id": "PA002",
+        "equipo_local": "A",
+        "equipo_visitante": "A",
+        "goles_local": 5,
+        "goles_visitante": 9,
+        "fecha": "2025-05-05",
+        "torneo_id": "LIG001"
     }
 ]

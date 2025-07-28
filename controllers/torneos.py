@@ -9,6 +9,7 @@ RUTA = os.path.join(DB_FILE, "torneos.json")
 def crear_torneo():
     sc.limpiar_pantalla()
     torneos = cf.leer_json(RUTA)
+    # TR{n:03} para generar id como TR001, TR002, etc.
     nuevo_id = f"TR{len(torneos) + 1:03}"
     fechaini = input("Fecha de inicio (YYYY-MM-DD): ")
     fechafin = input("Fecha de fin (YYYY-MM-DD): ")

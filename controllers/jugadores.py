@@ -4,11 +4,15 @@ import utils.validateData as vd
 from config import DB_FILE
 import os
 
+# utilice os.path.join para asegurar la compatibilidad entre s.o
 RUTA = os.path.join(DB_FILE, "jugadores.json")
 
+
+# CRUD de jugadores
 def crear_jugador():
     sc.limpiar_pantalla()
     jugadores = cf.leer_json(RUTA)
+    # JU{n:03} para generar id como JU001, JU002, etc
     nuevo_id = f"JU{len(jugadores) + 1:03}"
     nombre = vd.validatetext("Nombre del jugador: ").title()
     posicion = vd.validatetext("Posición: ").title()
@@ -37,6 +41,7 @@ def listar_jugadores():
         print(f"ID: {jugador['id']} | Nombre: {jugador['nombre']} | Posición: {jugador['posicion']} | Dorsal: {jugador['dorsal']} | Equipo: {jugador['equipo_id']} | Nacimiento: {jugador['fecha_nacimiento']}")
     sc.pausar()
 
+# Se busca por ID y se actualizan los campos
 def actualizar_jugador():
     sc.limpiar_pantalla()
     jugadores = cf.leer_json(RUTA)

@@ -6,5 +6,13 @@
         "dorsal": 10,
         "equipo_id": "1",
         "fecha_nacimiento": "2024-05-05"
+    },
+    {
+        "id": "JU002",
+        "nombre": "Juan",
+        "posicion": "Defensa",
+        "dorsal": 4,
+        "equipo_id": "EQ001",
+        "fecha_nacimiento": "2003-05-05"
     }
 ]

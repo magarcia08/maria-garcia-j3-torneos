@@ -4,11 +4,15 @@ import utils.validateData as vd
 from config import DB_FILE
 import os
 
+# Ruta del archivo JSON para los dirigentes
+# utilice os.path.join para asegurar la compatibilidad entre s.o
 RUTA = os.path.join(DB_FILE, "dirigentes.json")
 
+# crud
 def crear_dirigente():
     sc.limpiar_pantalla()
     dirigentes = cf.leer_json(RUTA)
+    # DI{n:03} para generar id como DI001, DI002, etc.
     nuevo_id = f"DI{len(dirigentes) + 1:03}"
     nombre = vd.validatetext("Nombre del dirigente: ").title()
     cargo = vd.validatetext("Cargo: ").title()

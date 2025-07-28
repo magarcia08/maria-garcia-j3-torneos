@@ -1,9 +1,10 @@
 [
     {
         "id": "EQ001",
-        "nombre": "Naci",
-        "fundacion": "2024-04-04",
+        "nombre": "Colombia",
         "pais": "Colombia",
-        "liga_id": "4"
+        "fecha_fundacion": "2000-05-05",
+        "competencia_tipo": "liga",
+        "competencia_id": "LIG001"
     }
 ]
