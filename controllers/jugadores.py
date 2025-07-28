@@ -5,63 +5,70 @@ from config import DB_FILE
 import os
 
 # utilice os.path.join para asegurar la compatibilidad entre s.o
-RUTA = os.path.join(DB_FILE, "jugadores.json")
 
+RUTA_JUGADORES = os.path.join(DB_FILE, "jugadores.json")
+RUTA_EQUIPOS = os.path.join(DB_FILE, "equipos.json")
 
-# CRUD de jugadores
 def crear_jugador():
     sc.limpiar_pantalla()
-    jugadores = cf.leer_json(RUTA)
-    # JU{n:03} para generar id como JU001, JU002, etc
-    nuevo_id = f"JU{len(jugadores) + 1:03}"
+    jugadores = cf.leer_json(RUTA_JUGADORES)
+    equipos = cf.leer_json(RUTA_EQUIPOS)
+    # PJ{n:03} para generar id como PJ001, PJ002, etc
+    nuevo_id = f"PJ{len(jugadores) + 1:03}"
     nombre = vd.validatetext("Nombre del jugador: ").title()
-    posicion = vd.validatetext("Posición: ").title()
+    posicion = vd.validatetext("Posición (Ej: Defensa, Delantero, Portero): ").title()
     dorsal = vd.validateInt("Número dorsal: ")
-    equipo_id = input("ID del equipo: ").upper()
-    fecha_nacimiento = input("Fecha de nacimiento (YYYY-MM-DD): ")
+    id_equipo = input("ID del equipo al que pertenece: ").upper()
+
+    if not any(e["id"] == id_equipo for e in equipos):
+        print("❌ El equipo no existe. Regístrelo primero.")
+        sc.pausar()
+        return
 
     jugador = {
         "id": nuevo_id,
         "nombre": nombre,
         "posicion": posicion,
         "dorsal": dorsal,
-        "equipo_id": equipo_id,
-        "fecha_nacimiento": fecha_nacimiento
+        "id_equipo": id_equipo
     }
+
     jugadores.append(jugador)
-    cf.escribir_json(RUTA, jugadores)
+    cf.escribir_json(RUTA_JUGADORES, jugadores)
     print("✅ Jugador registrado exitosamente")
     sc.pausar()
 
 def listar_jugadores():
     sc.limpiar_pantalla()
-    jugadores = cf.leer_json(RUTA)
+    jugadores = cf.leer_json(RUTA_JUGADORES)
     print("\n--- LISTADO DE JUGADORES ---")
-    for jugador in jugadores:
-        print(f"ID: {jugador['id']} | Nombre: {jugador['nombre']} | Posición: {jugador['posicion']} | Dorsal: {jugador['dorsal']} | Equipo: {jugador['equipo_id']} | Nacimiento: {jugador['fecha_nacimiento']}")
+    for j in jugadores:
+        print(f"ID: {j['id']} | Nombre: {j['nombre']} | Posición: {j['posicion']} | Dorsal: {j['dorsal']} | Equipo: {j['id_equipo']}")
     sc.pausar()
 
-# Se busca por ID y se actualizan los campos
 def actualizar_jugador():
     sc.limpiar_pantalla()
-    jugadores = cf.leer_json(RUTA)
+    jugadores = cf.leer_json(RUTA_JUGADORES)
+    equipos = cf.leer_json(RUTA_EQUIPOS)
     id_jugador = input("Ingrese ID del jugador a actualizar: ").upper()
-    for i, jugador in enumerate(jugadores):
-        if jugador["id"] == id_jugador:
+    for i, j in enumerate(jugadores):
+        if j["id"] == id_jugador:
             nombre = vd.validatetext("Nuevo nombre: ").title()
             posicion = vd.validatetext("Nueva posición: ").title()
             dorsal = vd.validateInt("Nuevo dorsal: ")
-            equipo_id = input("Nuevo ID de equipo: ").upper()
-            fecha_nacimiento = input("Nueva fecha de nacimiento: ")
+            id_equipo = input("Nuevo ID del equipo: ").upper()
+            if not any(e["id"] == id_equipo for e in equipos):
+                print("❌ El equipo no existe.")
+                sc.pausar()
+                return
             jugadores[i] = {
                 "id": id_jugador,
                 "nombre": nombre,
                 "posicion": posicion,
                 "dorsal": dorsal,
-                "equipo_id": equipo_id,
-                "fecha_nacimiento": fecha_nacimiento
+                "id_equipo": id_equipo
             }
-            cf.escribir_json(RUTA, jugadores)
+            cf.escribir_json(RUTA_JUGADORES, jugadores)
             print("✅ Jugador actualizado")
             break
     else:
@@ -70,12 +77,12 @@ def actualizar_jugador():
 
 def eliminar_jugador():
     sc.limpiar_pantalla()
-    jugadores = cf.leer_json(RUTA)
+    jugadores = cf.leer_json(RUTA_JUGADORES)
     id_jugador = input("Ingrese ID del jugador a eliminar: ").upper()
-    for i, jugador in enumerate(jugadores):
-        if jugador["id"] == id_jugador:
+    for i, j in enumerate(jugadores):
+        if j["id"] == id_jugador:
             del jugadores[i]
-            cf.escribir_json(RUTA, jugadores)
+            cf.escribir_json(RUTA_JUGADORES, jugadores)
             print("✅ Jugador eliminado")
             break
     else:

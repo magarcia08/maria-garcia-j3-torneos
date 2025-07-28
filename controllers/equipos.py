@@ -4,6 +4,7 @@ import utils.validateData as vd
 from config import DB_FILE
 import os
 
+# utilice os.path.join para asegurar la compatibilidad entre s.o
 RUTA_EQUIPOS = os.path.join(DB_FILE, "equipos.json")
 RUTA_LIGAS = os.path.join(DB_FILE, "ligas.json")
 RUTA_TORNEOS = os.path.join(DB_FILE, "torneos.json")
@@ -24,7 +25,7 @@ def crear_equipo():
         competencia_id = input("Ingrese ID de la liga: ").upper()
         ligas = cf.leer_json(RUTA_LIGAS)
         if not any(l["id"] == competencia_id for l in ligas):
-            print("❌ Liga no encontrada. Regístrela primero.")
+            print("Liga no encontrada. Regístrela primero.")
             sc.pausar()
             return
     elif tipo_competencia == "torneo":
@@ -35,7 +36,7 @@ def crear_equipo():
             sc.pausar()
             return
     else:
-        print("❌ Tipo de competencia inválido")
+        print("Tipo de competencia inválido")
         sc.pausar()
         return
 

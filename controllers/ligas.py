@@ -4,6 +4,7 @@ import utils.validateData as vd
 from config import DB_FILE
 import os
 
+# utilice os.path.join para asegurar la compatibilidad entre s.o
 RUTA = os.path.join(DB_FILE, "ligas.json")
 
 def crear_liga():
