@@ -135,15 +135,6 @@ El menú principal te permitirá acceder a cada módulo del sistema:
 
 ---
 
-## 💡 Ideas futuras / ampliaciones
-
-* Visualización con interfaces gráficas (Tkinter, PyQt)
-* Soporte para login de usuarios
-* Estadísticas por equipo y jugador (goles, tarjetas, etc.)
-* Integración con una base de datos relacional (PostgreSQL)
-
----
-
 ## 👩‍💻 Autor
 
 Proyecto desarrollado por **María Alejandra García** – 2025. Todos los derechos reservados. 💙⚽
