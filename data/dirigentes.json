@@ -1,0 +1,9 @@
+[
+    {
+        "id": "DG001",
+        "nombre": "Carlos",
+        "cargo": "Apostador",
+        "competencia_tipo": "liga",
+        "competencia_id": "LIG001"
+    }
+]

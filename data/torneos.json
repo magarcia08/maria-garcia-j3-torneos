@@ -1,8 +1,16 @@
 [
     {
         "id": "TR001",
-        "fechainicio": "2025-01-01",
-        "fechafin": "2026-06-06",
-        "pais": "España"
+        "nombre": "Champions",
+        "pais": "España",
+        "fecha_inicio": "2025-01-01",
+        "fecha_fin": "2025-07-07"
+    },
+    {
+        "id": "TR002",
+        "nombre": "Copa America",
+        "pais": "Nacional",
+        "fecha_inicio": "2021-05-05",
+        "fecha_fin": "2022-04-04"
     }
 ]

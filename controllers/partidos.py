@@ -82,7 +82,7 @@ def actualizar_partido():
             id_equipo_local = input("Nuevo ID equipo local: ").upper()
             id_equipo_visitante = input("Nuevo ID equipo visitante: ").upper()
             if id_equipo_local == id_equipo_visitante:
-                print("❌ Mismo equipo no puede jugar contra sí mismo")
+                print("Mismo equipo no puede jugar contra si mismo ❌")
                 sc.pausar()
                 return
             if not any(e["id"] == id_equipo_local for e in equipos):
@@ -99,7 +99,7 @@ def actualizar_partido():
             id_comp_visita = next(e for e in equipos if e["id"] == id_equipo_visitante)["competencia_id"]
 
             if tipo_local != tipo_visita or id_comp_local != id_comp_visita:
-                print("❌ Los equipos no pertenecen a la misma competencia")
+                print("Los equipos no pertenecen a la misma competencia")
                 sc.pausar()
                 return
 
@@ -117,7 +117,7 @@ def actualizar_partido():
                 "competencia_id": id_comp_local
             }
             cf.escribir_json(RUTA_PARTIDOS, partidos)
-            print("✅ Partido actualizado")
+            print("Partido actualizado ")
             break
     else:
         print("❌ Partido no encontrado")

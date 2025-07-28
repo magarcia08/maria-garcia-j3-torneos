@@ -1,0 +1,12 @@
+[
+    {
+        "id": "PT001",
+        "fecha": "2025-28-08",
+        "equipo_local": "EQ001",
+        "equipo_visitante": "EQ002",
+        "goles_local": 5,
+        "goles_visitante": 10,
+        "competencia_tipo": "liga",
+        "competencia_id": "LIG001"
+    }
+]

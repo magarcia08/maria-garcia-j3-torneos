@@ -1,6 +1,6 @@
 """
 Autor: Maria Alejandra Garcia Merchan
-Fecha: 2025-07-27
+Fecha: 27 de julio de 2025
 Descripción: Este es el punto de entrada principal para el gestor de torneos de fútbol.
 Este proyecto permite gestionar equipos, jugadores, dirigentes, partidos, ligas, torneos, 
 transferencias y estadísticas de fútbol.

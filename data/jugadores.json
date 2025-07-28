@@ -1,0 +1,18 @@
+[
+    {
+        "id": "JUG001",
+        "nombre": "Messi",
+        "posicion": "Delantero",
+        "dorsal": 9,
+        "fecha_nacimiento": "1995-05-05",
+        "id_equipo": "EQ004"
+    },
+    {
+        "id": "JUG002",
+        "nombre": "Lamine",
+        "posicion": "Delantero",
+        "dorsal": 10,
+        "fecha_nacimiento": "2007-05-05",
+        "id_equipo": "EQ004"
+    }
+]

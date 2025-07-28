@@ -1,0 +1,12 @@
+[
+    {
+        "id": "TF001",
+        "jugador_id": "JUG001",
+        "nombre_jugador": "Messi",
+        "equipo_origen": "EQ001",
+        "equipo_destino": "EQ002",
+        "tipo": "venta",
+        "valor": 500000,
+        "fecha": "2026-05-05"
+    }
+]

@@ -14,7 +14,7 @@ El sistema utiliza archivos JSON como almacenamiento persistente y está estruct
 * Administrar **ligas locales** y **torneos internacionales**.
 * Controlar el calendario y resultados de **partidos**.
 * Gestionar **transferencias de jugadores** entre equipos.
-* Generar **estadísticas** básicas de rendimiento y edad.
+* Generar **estadísticas** de edad y goles anotados.
 
 ---
 
@@ -63,7 +63,7 @@ torneo_futbol/
 
 ### 👥 Jugadores
 
-* ID automático (`JU001`...)
+* ID automático (`JUG001`...)
 * Nombre, dorsal, posición, fecha nacimiento, ID equipo
 
 ### 🎩 Dirigentes

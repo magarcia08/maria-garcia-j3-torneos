@@ -1,0 +1,26 @@
+[
+    {
+        "id": "EQ001",
+        "nombre": "Nacional",
+        "pais": "Colombia",
+        "fecha_fundacion": "2000-05-05",
+        "competencia_tipo": "liga",
+        "competencia_id": "LIG001"
+    },
+    {
+        "id": "EQ003",
+        "nombre": "Real Madrid",
+        "pais": "España",
+        "fecha_fundacion": "2000-05-05",
+        "competencia_tipo": "torneo",
+        "competencia_id": "TR001"
+    },
+    {
+        "id": "EQ004",
+        "nombre": "Barcelona",
+        "pais": "España",
+        "fecha_fundacion": "2001-04-08",
+        "competencia_tipo": "torneo",
+        "competencia_id": "TR001"
+    }
+]

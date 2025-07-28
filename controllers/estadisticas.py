@@ -18,7 +18,7 @@ def calcular_edad(fecha_nacimiento):
 def jugador_mas_joven():
     jugadores = cf.leer_json(RUTA_JUGADORES)
     if not jugadores:
-        print("❌ No hay jugadores registrados")
+        print("No hay jugadores registrados")
         return
     mas_joven = min(jugadores, key=lambda j: calcular_edad(j["fecha_nacimiento"]))
     edad = calcular_edad(mas_joven["fecha_nacimiento"])

@@ -4,31 +4,45 @@ import utils.validateData as vd
 from config import DB_FILE
 import os
 
+# utilice os.path.join para asegurar la compatibilidad entre s.o
 RUTA_JUGADORES = os.path.join(DB_FILE, "jugadores.json")
 RUTA_TRANSFERENCIAS = os.path.join(DB_FILE, "transferencias.json")
+RUTA_EQUIPOS = os.path.join(DB_FILE, "equipos.json")
 
 def solicitar_transferencia():
     sc.limpiar_pantalla()
     jugadores = cf.leer_json(RUTA_JUGADORES)
     transferencias = cf.leer_json(RUTA_TRANSFERENCIAS)
+    equipos = cf.leer_json(RUTA_EQUIPOS)
 
     id_jugador = input("ID del jugador a transferir: ").upper()
     jugador = next((j for j in jugadores if j['id'] == id_jugador), None)
 
     if not jugador:
-        print("❌ Jugador no encontrado")
+        print("Jugador no encontrado. ")
         sc.pausar()
         return
 
-    print(f"Jugador: {jugador['nombre']} | Equipo actual: {jugador['equipo_id']}")
+    equipo_actual = jugador.get("id_equipo") or jugador.get("equipo_id")
+    if not equipo_actual:
+        print("❌ El jugador no tiene equipo asignado")
+        sc.pausar()
+        return
+
+    print(f"Jugador: {jugador['nombre']} | Equipo actual: {equipo_actual}")
     equipo_destino = input("ID del equipo destino: ").upper()
+    if not any(e['id'] == equipo_destino for e in equipos):
+        print("❌ El equipo destino no existe")
+        sc.pausar()
+        return
+
     tipo = input("Tipo de transferencia (venta/préstamo): ").lower()
     valor = vd.validateInt("Valor ofrecido: ")
     fecha = input("Fecha de transferencia (YYYY-MM-DD): ")
 
     confirmar = input(f"¿Aceptar la transferencia al equipo {equipo_destino} por ${valor}? (s/n): ").lower()
     if confirmar == "s":
-        jugador['equipo_id'] = equipo_destino
+        jugador['id_equipo'] = equipo_destino
         for i, j in enumerate(jugadores):
             if j['id'] == jugador['id']:
                 jugadores[i] = jugador
@@ -38,7 +52,7 @@ def solicitar_transferencia():
             "id": f"TF{len(transferencias) + 1:03}",
             "jugador_id": jugador['id'],
             "nombre_jugador": jugador['nombre'],
-            "equipo_origen": jugador['equipo_id'],
+            "equipo_origen": equipo_actual,
             "equipo_destino": equipo_destino,
             "tipo": tipo,
             "valor": valor,
